@@ -1,0 +1,5 @@
+*.f3d binary
+*.stl binary
+*.step -text
+*.obj -text
+*.mtl -text

@@ -1,0 +1,16 @@
+# Local tooling (Fusion 360 MCP server used to drive Fusion from Claude Code)
+.venv/
+fusion360-mcp-server-main/
+fusion-mcp.zip
+
+# Local-only material: old iterations, working master with the engine-bay scan, source photos
+_archive/
+work/
+sources/
+
+# OS / editor noise
+Thumbs.db
+desktop.ini
+.DS_Store
+*.tmp
+~$*
