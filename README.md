@@ -29,15 +29,15 @@ All STL files are in millimetres.
 
 | Feature | Value |
 |---|---|
-| Inlet (mouth) | True rectangle 166 × 49 mm, 90° corners, inscribed in the flat rear wall of the cross-member bump |
+| Inlet (mouth) | True rectangle 160 × 49 mm, 90° corners, on the flat rear wall of the cross-member bump (narrowed from 166 mm after a test fit on the car) |
 | Mounting face | Offset 1 mm from the bump wall for 1 mm double-sided silicone tape; flat land ≈ 8 mm all round |
 | Inlet edge | 3 mm fillet on the inner edge |
 | Wall thickness | 2.5 mm (10 mm at the mouth, tapering) |
-| Cross-section | Decreases monotonically from ≈ 34 cm² behind the mouth to 26.4 cm² (Ø58 mm) at the socket; no pinch points |
-| Outlet | Separate bayonet flange (Part 3) on the Ø63 spigot, matching the OEM filter-inlet flange: OD 71 mm, bore Ø62 (15 mm) → seat Ø59.6 → cuff stop ring Ø56 at 31.5 mm below the rim; two through windows 32° × 11.5 mm (3.5–15 mm below the rim), two 32° entry grooves (to Ø67.4) from the rim down to the windows; twist-lock counter-clockwise viewed into the filter inlet |
+| Width / cross-section | Width is largest at the 160 mm mouth and decreases smoothly and monotonically (158 → 150 mm over the hood-seal lip → 133 → 100 → Ø63 tube); inner area ≥ 26.4 cm² everywhere (Ø58 tube), no pinch points |
+| Outlet | Separate bayonet flange (Part 3) on the Ø63 spigot, matching the OEM filter-inlet flange (measured: bore Ø64, Ø69 across the lug recesses): OD 73 mm, bore Ø64 for 25 mm → cone → seat Ø59.6 → cuff stop ring Ø56 at 31.5 mm below the rim; two through windows 32° × 11.5 mm (3.5–15 mm below the rim), two 32° entry grooves (to Ø69) from the rim down to the windows; twist-lock counter-clockwise viewed into the filter inlet |
 | Bellows fit | OEM bellows lugs 15.2 (circumferential) × 10.3 (axial) × 2 mm, lug 27.5 mm from the cuff end, cuff end OD 58 mm; free length ≈ 146 mm, fully compressed ≈ 109 mm. Required length in the car ≈ 143 mm (rim-to-rim 80 mm), so the bellows sits almost free |
 | Socket axis | Tilted 25° down from the filter-inlet axis so the bellows takes part of the bend (gentler S-bend, min. centre-line radius ≈ 83 mm) |
-| Clips | 2 snap saddles (26 mm wide) on the hood-seal lip + 3 snap clips (30 mm wide) on the small floor rib; 2 mm root gussets, spring legs 3.3–3.5 mm |
+| Clips | 2 snap saddles (26 mm wide, at x = −30 / +60 mm) on the hood-seal lip + 3 snap clips (30 mm wide, at x = −33 / +25 / +60 mm) on the small floor rib; 2 mm root gussets, spring legs 3.3–3.5 mm |
 
 ![Side view](images/final_side.png)
 
@@ -52,10 +52,9 @@ if you have an enclosed printer.
 
 | Part | Size (mm) | Orientation (as exported) | Supports |
 |---|---|---|---|
-| `Part1_mouth_clips` | 148 × 149 × 191 | Standing; clip legs lie along the layers (~5°) for strength | Slicer tree/organic, touching build plate only |
-| `Part2_bend_tube` | 122 × 123 × 170 | Spigot end down (round and flat on the bed) | Usually none |
-| `Part3_bayonet_flange` | 71 × 71 × 51 | Base (spigot sleeve) down | None (45° cone under the stop ring, windows bridge ≈ 17 mm) |
-| `print/Part3_lock_test` (optional) | 71 × 71 × 20 | Cut face down | None; top 20 mm of Part 3 for a quick bayonet fit check (≈ 21 g, ≈ 1 h) |
+| `Part1_mouth_clips` | 142 × 142 × 190 | Standing; clip legs lie along the layers (~5°) for strength | Slicer tree/organic, touching build plate only |
+| `Part2_bend_tube` | 110 × 119 × 170 | Spigot end down (round and flat on the bed) | Usually none |
+| `Part3_bayonet_flange` | 73 × 73 × 51 | Base (spigot sleeve) down | None (45° cone under the stop ring, windows bridge ≈ 17 mm) |
 
 Suggested PETG settings: nozzle 240–245 °C, bed 80 °C (glue stick as release layer),
 fan 30–40 %, 40–50 mm/s, 4 perimeters, 30 % gyroid. Add a modifier over the clip area with
@@ -86,10 +85,15 @@ Check hood clearance above the seal lip on the car before final assembly.
 ## Notes
 
 - The master Fusion file with the engine-bay scan is kept locally and is not published.
-- `model/` shows the duct with the original integrated socket (OD 69, 38 mm). The printable
-  `parts/Part3_bayonet_flange` supersedes it: the first version was too shallow (23 mm instead of
-  31.5 mm to the cuff stop) and its entry grooves were too narrow for the 15 mm lugs. The new
-  flange sits on the same spigot and base plane; only the rim end grew by 13 mm toward the filter
-  (checked against the engine-bay scan, ≥ 13 mm clearance).
+- `model/` is the earlier design reference (166 mm mouth, integrated OD 69 socket). The printable
+  `parts/` supersede it:
+  - Parts 1 and 2 were regenerated from the loft sections with a 160 mm mouth and monotonically
+    decreasing widths, the clips were re-fitted to the new walls, and the Part 2 collar (0.15 mm
+    clearance, 2 mm wall, 10 mm overlap) and Ø63 spigot were rebuilt. Checked against the
+    engine-bay scan: only the intended clip snap / floor contact points (≤ 0.35 mm), Part 2 is clear.
+  - Part 3: the first version was too shallow (23 mm instead of 31.5 mm to the cuff stop) and its
+    bore (Ø62) was too small for the bellows cuff; rebuilt to the measured OEM flange (Ø64 bore,
+    Ø69 lug recesses). Same spigot sleeve and base plane; the rim end is 13 mm closer to the filter
+    (≥ 12 mm clearance to the engine-bay scan).
 - Dimensions of the OEM flange and bellows come from the scans in `references/` and hand
   measurements; verify fit with a test print of a clip section before printing the full part.
