@@ -15,5 +15,6 @@ desktop.ini
 *.tmp
 ~$*
 
-# Full-resolution Part 2 STL is too large for GitHub; the repo has parts/Part2_bend_tube.stl.zip
+# Full-resolution STLs are too large for GitHub; the repo has zipped copies (*.stl.zip)
+parts/Part1_mouth_clips.stl
 parts/Part2_bend_tube.stl
