@@ -23,7 +23,9 @@ scaled from the known Ø63 mm filter inlet, and checked for collisions with the 
 | `references/bellows_scan/` | 3D scan (OBJ) of the OEM corrugated hose (bellows) |
 | `images/` | Renders |
 
-All STL files are in millimetres.
+All STL files are in millimetres. The full-resolution Part 2 STL (≈ 50 MB, 0.01 mm chord
+tolerance) is too large for the repository, so it is stored zipped as
+`parts/Part2_bend_tube.stl.zip`.
 
 ## Design summary
 
@@ -34,8 +36,9 @@ All STL files are in millimetres.
 | Inlet edge | 3 mm fillet on the inner edge |
 | Wall thickness | 2.5 mm (10 mm at the mouth, tapering) |
 | Width / cross-section | Width is largest at the 160 mm mouth and decreases smoothly and monotonically (158 → 150 mm over the hood-seal lip → 133 → 100 → Ø63 tube); inner area ≥ 26.4 cm² everywhere (Ø58 tube), no pinch points |
-| Outlet | Separate bayonet flange (Part 3) on the Ø63 spigot, matching the OEM filter-inlet flange (measured: bore Ø64, Ø69 across the lug recesses): OD 73 mm, bore Ø64 for 25 mm → cone → seat Ø59.6 → cuff stop ring Ø56 at 31.5 mm below the rim; two through windows 32° × 11.5 mm (3.5–15 mm below the rim), two 32° entry grooves (to Ø69) from the rim down to the windows; twist-lock counter-clockwise viewed into the filter inlet |
-| Bellows fit | OEM bellows lugs 15.2 (circumferential) × 10.3 (axial) × 2 mm, lug 27.5 mm from the cuff end, cuff end OD 58 mm; free length ≈ 146 mm, fully compressed ≈ 109 mm. Required length in the car ≈ 143 mm (rim-to-rim 80 mm), so the bellows sits almost free |
+| Outlet | Separate bayonet flange (Part 3) on the Ø63 spigot, fitted to the measured bellows cuff with every diameter 1 mm larger than the cuff: OD 73 mm, height 46 mm; spigot sleeve Ø63.3 × 10 mm → 45° cone → Ø54 ring (flush with the cuff bore) → cuff stop → Ø62 → R4 shoulder → Ø64 up to the rim; two through windows 29° × 10 mm, two entry grooves (to Ø68) from the rim down to the windows, 30° twist; twist-lock counter-clockwise viewed into the filter inlet |
+| Spigot / flange joint | The Part 2 bore narrows from Ø58 to Ø54 inside the spigot along an S-curve of two tangent R38.8 arcs (no kinks); the spigot tip is a 45° cone that seats on the flange cone, so the flow path is a continuous Ø54 from Part 2 through the flange ring into the bellows cuff, with no step or gap |
+| Bellows fit | OEM bellows cuff (measured): end Ø59 with R1 edge, sealing bead Ø61, Ø60, R4 shoulder, Ø63, wall 2.5 mm (bore Ø54); two wedge lugs 15 mm wide × 9 mm long, rising to 2.5 mm (Ø67) at the back, 26 mm from the cuff end. Clearance 0.5 mm per side radially and around the lugs, 0.5 mm axial lug play. Free length ≈ 146 mm, fully compressed ≈ 109 mm; the rim position in the car is unchanged, the cuff stop is 1 mm closer to the filter than in the previous flange |
 | Socket axis | Tilted 25° down from the filter-inlet axis so the bellows takes part of the bend (gentler S-bend, min. centre-line radius ≈ 83 mm) |
 | Clips | 2 snap saddles (26 mm wide, at x = −30 / +60 mm) on the hood-seal lip + 3 snap clips (30 mm wide, at x = −33 / +25 / +60 mm) on the small floor rib; 2 mm root gussets, spring legs 3.3–3.5 mm |
 
@@ -53,8 +56,8 @@ if you have an enclosed printer.
 | Part | Size (mm) | Orientation (as exported) | Supports |
 |---|---|---|---|
 | `Part1_mouth_clips` | 142 × 142 × 190 | Standing; clip legs lie along the layers (~5°) for strength | Slicer tree/organic, touching build plate only |
-| `Part2_bend_tube` | 110 × 119 × 170 | Spigot end down (round and flat on the bed) | Usually none |
-| `Part3_bayonet_flange` | 73 × 73 × 51 | Base (spigot sleeve) down | None (45° cone under the stop ring, windows bridge ≈ 17 mm) |
+| `Part2_bend_tube` | 110 × 119 × 173 | Spigot tip down (1 mm flat ring Ø54–56 on the bed — use a brim) | Usually none |
+| `Part3_bayonet_flange` | 73 × 73 × 46 | Base (spigot sleeve) down | None (45° cone under the stop ring, windows bridge ≈ 18 mm) |
 
 Suggested PETG settings: nozzle 240–245 °C, bed 80 °C (glue stick as release layer),
 fan 30–40 %, 40–50 mm/s, 4 perimeters, 30 % gyroid. Add a modifier over the clip area with
@@ -71,7 +74,7 @@ Do not use modelled supports — let the slicer generate tree/organic supports, 
 1. Slide the collar of **Part 2** over **Part 1** (0.15 mm clearance, 10 mm overlap) and bond
    with epoxy or CA glue (acetone does not work on PETG).
 2. Slide **Part 3** (bayonet flange) over the Ø63 spigot of Part 2 (0.15 mm radial clearance,
-   15 mm overlap) until the spigot end touches the internal cone. It rotates freely.
+   10 mm overlap) until the conical spigot tip seats on the internal cone. It rotates freely.
 3. Cut a rectangular opening in the rear wall of the cross-member bump, apply 1 mm
    double-sided silicone (or VHB) tape to the mouth land, and snap the saddles over the
    hood-seal lip and the clips onto the floor rib.
@@ -95,5 +98,10 @@ Check hood clearance above the seal lip on the car before final assembly.
     bore (Ø62) was too small for the bellows cuff; rebuilt to the measured OEM flange (Ø64 bore,
     Ø69 lug recesses). Same spigot sleeve and base plane; the rim end is 13 mm closer to the filter
     (≥ 12 mm clearance to the engine-bay scan).
+  - Part 3 was rebuilt again from a hand-measured bellows cuff (all diameters +1 mm, wedge lugs
+    with a cylindrical outer face), the spigot sleeve shortened from 15 to 10 mm, and the Part 2
+    spigot given an internal Ø58 → Ø54 S-taper and a conical tip. Re-checked in the car
+    assembly: Part 2 outside is unchanged, the flange rim is at the same position, no interference
+    between parts or with the bellows, ≥ 12 mm to the engine-bay scan.
 - Dimensions of the OEM flange and bellows come from the scans in `references/` and hand
   measurements; verify fit with a test print of a clip section before printing the full part.
