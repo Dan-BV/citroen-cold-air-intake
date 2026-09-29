@@ -74,6 +74,15 @@ footprint on the bed.
 
 ![Print layout](images/print_layout.png)
 
+### Fit test (optional)
+
+`print/Part1_fit_test.stl` is a quick test piece cut from Part 1: the lower half of the duct
+from just before the seal-lip saddles to the mouth, with all five clips and the full mouth land
+frame (5 mm deep). It prints with the tape land flat on the bed. Use the Cura profile
+`print/cura/Ender3Pro_PETG_TEST_hollow_fit.curaprofile` (0.28 mm layers, 2 walls, 0 % infill,
+60 mm/s, tree supports from the plate at 60°), ≈ 40–45 g. On the car, snap the clips on and check
+that the land sits ≈ 1 mm from the bump wall all round (the tape thickness).
+
 ## Assembly and installation
 
 1. Slide the collar of **Part 2** over **Part 1** (0.15 mm clearance, 10 mm overlap) and bond
