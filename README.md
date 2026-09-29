@@ -60,6 +60,10 @@ if you have an enclosed printer.
 | `Part2_bend_tube` | 110 × 119 × 173 | Spigot tip down (1 mm flat ring Ø54–56 on the bed — use a brim) | None (steepest overhang ≈ 43° at the collar chamfer) |
 | `Part3_bayonet_flange` | 73 × 73 × 46 | Base (spigot sleeve) down | None (45° cone under the stop ring, windows bridge ≈ 18 mm) |
 
+The Cura profile used for the parts is `print/cura/Ender3Pro_PETG_CAI.curaprofile` (import it via
+Preferences → Profiles → Import). Its +0.9 mm Z offset (`adhesion_z_offset`) needs the Z Offset
+Setting plugin from the Cura Marketplace; adjust it to your own printer.
+
 Suggested PETG settings: nozzle 240–245 °C, bed 80 °C (glue stick as release layer),
 fan 30–40 %, 40–50 mm/s, 4 perimeters, 30 % gyroid. Add a modifier over the clip area with
 100 % infill and 5–6 perimeters. Brim 5–8 mm for parts 1 and 2. Dry the filament if it is not
