@@ -80,13 +80,31 @@ footprint on the bed.
 
 ### Fit test (optional)
 
-`print/CAI_v22_fit_test_trim.stl` is a quick test piece cut from Part 1: the full mouth land
-frame (12 mm deep), the floor up to just behind the saddle, and the saddle. It is exported with the
-tape land flat on the bed (160 × 92 × 83 mm). Use the Cura profile
+`print/CAI_v24_fit_test_light.stl` is the current test piece. It is cut from the v24 revision of
+Part 1, which is not exported to `parts/` yet and will be once the test piece confirms the fit:
+- a 5 mm deep mouth frame with the full tape land;
+- the floor, cut to a wedge that narrows from the full width at the frame to the clip;
+- the clip.
+
+It is exported with the tape land flat on the bed (160 × 94 × 80 mm, ≈ 48 cm³). Use the Cura profile
 `print/cura/Ender3Pro_PETG_TEST_fit_v22.curaprofile` (0.28 mm layers, 3 walls, 0 % infill,
-60 mm/s, tree supports from the plate at 60°, z-hop), ≈ 2–2.5 h. On the car, snap the saddle on and
-check that the land sits ≈ 1 mm from the bump wall all round (the tape thickness).
-(`print/Part1_fit_test.stl` is the test piece of the previous design.)
+60 mm/s, tree supports from the plate at 60°, z-hop). Tree supports are needed under the clip.
+
+v24 changes against the hand-measured seal-lip profile:
+- **Land:** 1.0 mm from the bump wall all round, for the tape.
+- **Mouth frame:** full 10 mm land, moved 1.4 mm up the wall.
+- **Tunnel:** the floor over the lip is lowered from 22 to 16.9 mm.
+- **Clip:** hook-and-swing instead of a flexing snap. The tooth sits 0.65 mm under the rear
+  overhang of the lip, the top rests on the lip, and the front stop runs down along the lip face.
+
+Install it on the car:
+1. Tilt the mouth up by about 25°.
+2. Hook the tooth under the rear overhang of the lip, from behind and above.
+3. Swing the mouth down onto the bump wall.
+
+The land should then sit about 1 mm from the wall all round.
+
+(`print/CAI_v22_fit_test_trim.stl` and `print/Part1_fit_test.stl` are test pieces of earlier designs.)
 
 ## Assembly and installation
 
