@@ -23,7 +23,7 @@ scaled from the known Ø63 mm filter inlet, and checked for collisions with the 
 | `references/bellows_scan/` | 3D scan (OBJ) of the OEM corrugated hose (bellows) |
 | `images/` | Renders |
 
-All STL files are in millimetres. The full-resolution Part 1 and Part 2 STLs (≈ 135 / 55 MB,
+All STL files are in millimetres. The full-resolution Part 1 and Part 2 STLs (≈ 105 / 55 MB,
 0.01 mm chord tolerance) are too large for the repository, so they are stored zipped as
 `parts/Part1_mouth_clips.stl.zip` and `parts/Part2_bend_tube.stl.zip`.
 
@@ -32,16 +32,16 @@ All STL files are in millimetres. The full-resolution Part 1 and Part 2 STLs (�
 | Feature | Value |
 |---|---|
 | Inlet (mouth) | 160 × 45 mm (R9 corners) on the flat part of the rear wall of the cross-member bump, centred on it; window 140 × 25 mm (≈ 35 cm²) |
-| Mounting face | Planar land offset 1 mm from the bump wall for 1 mm double-sided tape; land 10 mm wide all round, entirely on the flat wall (no part of it on the top radius) |
+| Mounting face | Planar land offset 1 mm from the bump wall (measured profile) for 1 mm double-sided tape; land 10 mm wide all round on the flat wall |
 | Inlet edge | Sharp edge; the inner walls run as straight ramps from the window to the duct over the seal lip |
 | Wall thickness | 2.5 mm (wedge up to 10 mm at the mouth land) |
-| Shape | Straight entry over the floor rib and the hood-seal lip (flat floor 3 mm above the lip), then one smooth bend down in which the section blends into a Ø63 tube, a straight Ø63 section (collar joint) and a short R55 bend onto the bellows-flange axis. Plan view: smooth trumpet 160 → ≈ 131 mm over the lip → Ø63. Narrowest section of the whole intake is the Ø54 ring of the bayonet flange (22.9 cm²); the duct over the lip is ≈ 23.5 cm² |
+| Shape | Straight entry over the floor rib and the hood-seal lip (floor 16.9 mm above the floor of the apron, about 1.8 mm above the lip top), then one smooth bend down in which the section blends into a Ø63 tube, a straight Ø63 section (collar joint) and a short R55 bend onto the bellows-flange axis. Plan view: smooth trumpet 160 → ≈ 131 mm over the lip → Ø63. Narrowest section of the whole intake is the Ø54 ring of the bayonet flange (22.9 cm²); the duct over the lip is ≈ 23.5 cm² |
 | Outlet | Separate bayonet flange (Part 3) on the Ø63 spigot, fitted to the measured bellows cuff with every diameter 1 mm larger than the cuff: OD 73 mm, height 46 mm; spigot sleeve Ø63.3 × 10 mm → 45° cone → Ø54 ring (flush with the cuff bore) → cuff stop → Ø62 → R4 shoulder → Ø64 up to the rim; two through windows 29° × 10 mm, two entry grooves (to Ø68) from the rim down to the windows, 30° twist; twist-lock counter-clockwise viewed into the filter inlet |
 | Spigot / flange joint | The Part 2 bore narrows from Ø58 to Ø54 inside the spigot along an S-curve of two tangent R38.8 arcs (no kinks); the spigot tip is a 45° cone that seats on the flange cone, so the flow path is a continuous Ø54 from Part 2 through the flange ring into the bellows cuff, with no step or gap |
 | Bellows fit | OEM bellows cuff (measured): end Ø59 with R1 edge, sealing bead Ø61, Ø60, R4 shoulder, Ø63, wall 2.5 mm (bore Ø54); two wedge lugs 15 mm wide × 9 mm long, rising to 2.5 mm (Ø67) at the back, 26 mm from the cuff end. Clearance 0.5 mm per side radially and around the lugs, 0.5 mm axial lug play. Free length ≈ 146 mm, fully compressed ≈ 109 mm; the rim position in the car is unchanged, the cuff stop is 1 mm closer to the filter than in the previous flange |
 | Bellows position | Flange rim 81 mm from the filter-inlet rim (bellows close to its free length), bellows bend 25° |
 | Collar joint | On the straight Ø63 section: the Part 2 collar (ID 63.3, OD 67.3, 10 mm) slides over the Part 1 tube end, butt joint with a flush Ø58 bore, 25° cone from the collar to the tube |
-| Clip | One snap saddle (26 mm wide) on the hood-seal lip at the mouth centre; the floor-rib clips of earlier versions were removed |
+| Clip | Separate clip (`parts/Clip_v25`, 26 mm wide) at the mouth centre. It hooks under the rear overhang of the hood-seal lip, its top rests on the lip and its front stop runs down the lip face. It is bonded with epoxy to a tongue under the Part 1 floor through a glue tray on the clip. The tray gives ±3° / ±1 mm of play, because the lip is not parallel to the bump wall |
 
 ![Side view](images/final_side.png)
 
@@ -56,12 +56,14 @@ if you have an enclosed printer.
 
 | Part | Size (mm) | Orientation (as exported) | Supports |
 |---|---|---|---|
-| `Part1_mouth_clips` | 160 × 194 × 142 | Tape land flat on the bed | Tree supports "everywhere" (≈ 50°): ≈ 40 cm² of near-flat ceiling inside the bend is not reachable from the plate |
+| `Part1_mouth_clips` | 161 × 94 × 241 | Standing on the long lower edge of the mouth, tube up (B2) | No slicer supports. Print `print/Part1_v25_B2_with_prop.stl.zip`, which includes a breakaway rib prop with a ≥ 0.32 mm gap. The prop keeps the tall part from tipping and is never inside the duct or the mouth window |
+| `Clip_v25` | 21 × 6.5 × 26 | End face on the bed | None |
 | `Part2_bend_tube` | 67 × 84 × 92 | Spigot tip down (use a brim) | Few or none (≈ 9 cm² over 45°) |
 | `Part3_bayonet_flange` | 73 × 73 × 46 | Base (spigot sleeve) down | None (45° cone under the stop ring, windows bridge ≈ 18 mm) |
 
 The Cura profile used for the parts is `print/cura/Ender3Pro_PETG_CAI.curaprofile` (import it via
-Preferences → Profiles → Import). Its +0.9 mm Z offset (`adhesion_z_offset`) needs the Z Offset
+Preferences → Profiles → Import). For Part 1 with the prop use `print/cura/Ender3Pro_PETG_CAI_v25_B2.curaprofile`:
+the same settings plus a 10 mm brim, a z-hop over printed parts, and supports off. Its +0.9 mm Z offset (`adhesion_z_offset`) needs the Z Offset
 Setting plugin from the Cura Marketplace; adjust it to your own printer.
 
 Suggested PETG settings: nozzle 240–245 °C, bed 80 °C (glue stick as release layer),
@@ -69,19 +71,17 @@ fan 30–40 %, 40–50 mm/s, 4 perimeters, 30 % gyroid. Add a modifier over the 
 100 % infill and 5–6 perimeters. Brim 5–8 mm for parts 1 and 2. Dry the filament if it is not
 fresh. Total material ≈ 400 g.
 
-Do not use modelled supports — let the slicer generate tree/organic supports, restricted to
-"touching build plate" so nothing grows inside the duct. Z gap 0.2 mm.
-For Part 1 set **Support Overhang Angle = 46°**: the Creality default (45°) flags a strip of the
-inner duct wall that is exactly at 45° and a branch grows into the duct through the mouth; at 46°
-the outer underside (45–50°) and the clip teeth are still supported, which also enlarges the
-footprint on the bed.
+Part 1 in the B2 orientation has no overhang that needs support. The only downward face is the
+underside of the tongue, ≈ 0.9 cm², which is only ≈ 1.2 mm above the duct wall below it. Use glue
+stick and avoid drafts: the part is tall. After printing, snap off the prop and trim the brim flush
+on the tape land. Parts 2 and 3 print with slicer supports restricted to "touching build plate"
+(Z gap 0.2 mm), if any are needed.
 
 ![Print layout](images/print_layout.png)
 
 ### Fit test (optional)
 
-The current test piece is v25. It is cut from the v25 revision of Part 1, which is not exported to
-`parts/` yet and will be once the test piece confirms the fit.
+The v25 test piece confirmed the fit on the car; `parts/` now holds the v25 Part 1 and clip.
 
 v25 fixes the skew seen with the v24 test piece. The seal lip is not parallel to the bump wall:
 near the clip its front face runs about 2° toward the bump and its top rises about 1°. A rigid
@@ -133,10 +133,14 @@ are test pieces of earlier designs.)
    with epoxy or CA glue (acetone does not work on PETG).
 2. Slide **Part 3** (bayonet flange) over the Ø63 spigot of Part 2 (0.15 mm radial clearance,
    10 mm overlap) until the conical spigot tip seats on the internal cone. It rotates freely.
-3. Cut a rectangular opening in the rear wall of the cross-member bump, apply 1 mm
-   double-sided silicone (or VHB) tape to the mouth land, and snap the saddle over the
-   hood-seal lip.
-4. Insert the bellows cuff into the flange with the lugs in the entry grooves, push it down to the
+3. Cut a rectangular opening in the rear wall of the cross-member bump.
+4. Fit the **clip** on the hood-seal lip at the mouth centre: hook the tooth under the rear overhang
+   and press it down. Fill its tray about half full with thick two-part epoxy.
+5. Apply 1 mm double-sided silicone (or VHB) tape to the mouth land and press Part 1 onto the bump
+   wall, so that its tongue sinks into the epoxy. Hold it until the epoxy sets. After that the
+   assembly can be removed and refitted: tilt the mouth up by about 25°, hook it on and swing it
+   down.
+6. Insert the bellows cuff into the flange with the lugs in the entry grooves, push it down to the
    stop ring and twist counter-clockwise so the lugs move into the windows. Do the same at the
    filter inlet, then rotate the flange to its final position and fix it to the spigot (glue or a
    small screw).
@@ -146,7 +150,11 @@ Check hood clearance above the seal lip on the car before final assembly.
 ## Notes
 
 - The master Fusion file with the engine-bay scan is kept locally and is not published.
-- v22 (current `parts/`): Parts 1 and 2 were redesigned against a new, true-size engine-bay scan
+- v25 (current `parts/`): Part 1 refitted to a hand-measured seal-lip profile (the land is 1.0 mm
+  from the wall, the floor over the lip is lower, there is no saddle on Part 1, and the clip is a
+  separate glued piece; see the fit-test section). It is confirmed on the car with the v25 test piece.
+  Part 2 and Part 3 are unchanged from v22.
+- v22: Parts 1 and 2 were redesigned against a new, true-size engine-bay scan
   (the first scan turned out ≈ 7.8 % oversized; confirmed with caliper measurements). Part 3 is
   unchanged. The renders in `images/`, `model/` and the notes below describe earlier versions.
 - `model/` is the earlier design reference (166 mm mouth, integrated OD 69 socket). The printable
