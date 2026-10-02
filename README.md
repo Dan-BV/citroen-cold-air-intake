@@ -80,31 +80,52 @@ footprint on the bed.
 
 ### Fit test (optional)
 
-`print/CAI_v24_fit_test_light.stl` is the current test piece. It is cut from the v24 revision of
-Part 1, which is not exported to `parts/` yet and will be once the test piece confirms the fit:
-- a 5 mm deep mouth frame with the full tape land;
-- the floor, cut to a wedge that narrows from the full width at the frame to the clip;
-- the clip.
+The current test piece is v25. It is cut from the v25 revision of Part 1, which is not exported to
+`parts/` yet and will be once the test piece confirms the fit.
 
-It is exported with the tape land flat on the bed (160 × 94 × 80 mm, ≈ 48 cm³). Use the Cura profile
-`print/cura/Ender3Pro_PETG_TEST_fit_v22.curaprofile` (0.28 mm layers, 3 walls, 0 % infill,
-60 mm/s, tree supports from the plate at 60°, z-hop). Tree supports are needed under the clip.
+v25 fixes the skew seen with the v24 test piece. The seal lip is not parallel to the bump wall:
+near the clip its front face runs about 2° toward the bump and its top rises about 1°. A rigid
+clip that is part of Part 1 therefore twists the whole part on the lip. In v25 the clip is a
+separate piece that is bonded to Part 1 in place:
+- **Clip** (`print/CAI_v25_clip.stl`, 21 × 6.5 × 26 mm): the v24 interface with the lip, plus a glue
+  tray that opens upward, with end walls so that thin epoxy cannot run out. The interface: the top
+  rests on the lip, the tooth sits 0.65 mm under the rear overhang, and the front stop runs down the
+  lip face.
+- **Part 1:** no saddle. A 19.8 × 5.3 mm tongue under the floor drops into the tray. It has about
+  1 mm clearance to the tray bottom and 1–1.5 mm to the walls, so the clip can sit up to ±3° and
+  about ±1 mm off the nominal position.
+- **Unchanged from v24:** the land is 1.0 mm from the bump wall all round, the mouth frame has the full
+  10 mm land, and the floor over the lip is at 16.9 mm.
 
-v24 changes against the hand-measured seal-lip profile:
-- **Land:** 1.0 mm from the bump wall all round, for the tape.
-- **Mouth frame:** full 10 mm land, moved 1.4 mm up the wall.
-- **Tunnel:** the floor over the lip is lowered from 22 to 16.9 mm.
-- **Clip:** hook-and-swing instead of a flexing snap. The tooth sits 0.65 mm under the rear
-  overhang of the lip, the top rests on the lip, and the front stop runs down along the lip face.
+Files:
+- `print/CAI_v25_fit_test_with_clip.stl`: the test piece and the clip in one print. The test piece
+  has a 5 mm deep mouth frame with the full tape land, a narrow spine from the frame to the tongue,
+  and a slope where the spine meets the frame. The clip stands on its end face directly under the
+  tongue, with a 0.8 mm rib support from the clip up to the tongue (≥ 0.4 mm gap) and a small bridge
+  over the lip notch.
+- `print/CAI_v25_fit_test_light.stl`: the test piece alone.
+
+Print with `print/cura/Ender3Pro_PETG_TEST_fit_v25_fast.curaprofile`:
+- 0.30 mm layers, 2 walls of 0.45 mm, 0 % infill;
+- 80 mm/s;
+- supports **off** (the rib support is part of the model);
+- 7 mm brim against corner lift;
+- the estimate is about 1 h 15 min to 1 h 25 min.
+
+Glue stick on the bed and no draft help keep the frame corners down. Trim the brim flush, so that
+no ridge is left on the tape land.
 
 Install it on the car:
-1. Tilt the mouth up by about 25°.
-2. Hook the tooth under the rear overhang of the lip, from behind and above.
-3. Swing the mouth down onto the bump wall.
+1. Fit the clip on the lip: hook the tooth under the rear overhang and press it down.
+2. Fill the tray about half full with thick two-part epoxy.
+3. Press the test piece, or the real Part 1, onto the bump wall through the 1 mm tape, so that the
+   tongue sinks into the epoxy.
+4. Hold it until the epoxy sets.
 
-The land should then sit about 1 mm from the wall all round.
+The land should sit about 1 mm from the wall all round.
 
-(`print/CAI_v22_fit_test_trim.stl` and `print/Part1_fit_test.stl` are test pieces of earlier designs.)
+(`print/CAI_v24_fit_test_light.stl`, `print/CAI_v22_fit_test_trim.stl` and `print/Part1_fit_test.stl`
+are test pieces of earlier designs.)
 
 ## Assembly and installation
 
