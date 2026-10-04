@@ -58,7 +58,7 @@ if you have an enclosed printer.
 |---|---|---|---|
 | `Part1_mouth_clips` | 161 × 94 × 241 | Standing on the long lower edge of the mouth, tube up (B2) | No slicer supports. Print `print/Part1_v25_B2_with_prop.stl.zip`, which includes a breakaway rib prop with a ≥ 0.32 mm gap. The prop keeps the tall part from tipping and is never inside the duct or the mouth window |
 | `Clip_v25` | 21 × 6.5 × 26 | End face on the bed | None |
-| `Part2_bend_tube` | 67 × 84 × 92 | Spigot tip down (use a brim) | Few or none (≈ 9 cm² over 45°) |
+| `Part2_bend_tube` | 67 × 84 × 92 | Spigot tip down, collar up (use the brim of the B2 profile) | None: no overhang inside the bore is steeper than 50° (the bend leans at most 39°); outside only the 45° spigot tip chamfer and ≈ 3 cm² under the collar cone |
 | `Part3_bayonet_flange` | 73 × 73 × 46 | Base (spigot sleeve) down | None (45° cone under the stop ring, windows bridge ≈ 18 mm) |
 
 The Cura profile used for the parts is `print/cura/Ender3Pro_PETG_CAI.curaprofile` (import it via
@@ -153,7 +153,9 @@ Check hood clearance above the seal lip on the car before final assembly.
 - v25 (current `parts/`): Part 1 refitted to a hand-measured seal-lip profile (the land is 1.0 mm
   from the wall, the floor over the lip is lower, there is no saddle on Part 1, and the clip is a
   separate glued piece; see the fit-test section). It is confirmed on the car with the v25 test piece.
-  Part 2 and Part 3 are unchanged from v22.
+  Part 2 and Part 3 are unchanged from v22, except that a hairline crack (≈ 0.005 mm, half the wall
+  ring) at the spigot / bend junction of Part 2 was filled; the repaired Part 2 matches the master
+  within 0.005 mm everywhere else.
 - v22: Parts 1 and 2 were redesigned against a new, true-size engine-bay scan
   (the first scan turned out ≈ 7.8 % oversized; confirmed with caliper measurements). Part 3 is
   unchanged. The renders in `images/`, `model/` and the notes below describe earlier versions.
